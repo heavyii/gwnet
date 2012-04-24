@@ -1,0 +1,29 @@
+
+南方医科大学高层公寓802。1x港湾网络linux客户端，使用socket实现，无第三方依赖库。
+
+编译：
+  进入目录make一下即可。(已经为您编译好的一个gwnet位于bin目录下，您可以使用它。)
+
+使用:
+	用管理员身份复制gwnet到/sbin:
+		cp gwnet /sbin
+		chmod 777 /sbin/gwnet
+
+	第一次使用需要配置配置文件/etc/gwnet.conf,使用命令可以自动保存配置，之后就可以直接输入gwnet,它会自动读取配置文件,下面是个例子:
+	指定网卡、用户密码： 
+		gwnet eth0 username passwd
+	使用配置文件指定网卡、用户密码: 
+		gwnet
+ 
+	请不要关闭gwnet，它需要和服务器维持通信才能确保持续上网，否则服务器会很快关闭网络连接。你可以把它放入后台运行：
+		gwnet &
+	
+	注销：gwnet在退出的时候会自动注销连接，你也可以发送信号INT或者SIGTERM让gwnet注销并退出：
+		killall gwnet
+		
+	
+author: crazyleen
+Date: Tuesday 24 April 2012 
+version: v0.6
+bugs report:	ruishenglin@126.com
+
